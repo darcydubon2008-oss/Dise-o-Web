@@ -17,6 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("No se encontró el botón btnConectar en el HTML");
     }
 });
+const btnBuscar = document.getElementById('btnBuscar');
+    if (btnBuscar) {
+        btnBuscar.addEventListener('click', buscarCategoria);
+    } else {
+        console.error("No se encontró el botón btnBuscar en el HTML");
+    }
 
 // 4. Función que se ejecuta al hacer clic en CONECTAR
 function conectarSupabase() {
