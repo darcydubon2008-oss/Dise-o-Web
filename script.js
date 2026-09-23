@@ -40,7 +40,7 @@ function conectarSupabase() {
         console.error("Detalles del error:", error);
     }
 }
-async function buscarCategoria() {
+async function buscarcategorias() {
     // 1. Verificar que el cliente esté conectado
     if (!supabaseClient) {
         alert("Primero debes conectarte 🔌");
