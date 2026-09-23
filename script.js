@@ -62,16 +62,43 @@ function conectarSupabase() {
 }
 
 
-// 5. BUSCAR CATEGORÍA
 async function buscarCategoria() {
 
-    // Verificar conexión
     if (!supabaseClient) {
-
         alert("Primero debes conectarte 🔌");
-
         return;
     }
+
+    try {
+
+        const { data, error } = await supabaseClient
+            .from('categorias')
+            .select('*');
+
+        console.log("DATOS RECIBIDOS:", data);
+        console.log("ERROR:", error);
+
+        if (error) {
+            alert("ERROR DE SUPABASE: " + error.message);
+            return;
+        }
+
+        if (!data || data.length === 0) {
+            alert("Supabase respondió, pero NO encontró registros 😭");
+            return;
+        }
+
+        alert("Se encontraron " + data.length + " categorías ✅");
+
+        console.log(data);
+
+    } catch (error) {
+
+        alert("ERROR: " + error.message);
+        console.error(error);
+
+    }
+}
 
 
     // Obtener valores
